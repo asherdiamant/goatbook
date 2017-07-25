@@ -25,7 +25,7 @@ SECRET_KEY = 'myim9$75h10y^-m%nq7ydeiga&$fl=4k6_u@t+gci4z4*)o^pb'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['superlists-staging.asherdiamant.site' 'asherdiamant.site']
+ALLOWED_HOSTS = ['superlists-staging.asherdiamant.site', 'asherdiamant.site']
 
 
 # Application definition
