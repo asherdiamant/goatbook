@@ -1,6 +1,9 @@
 import os, time
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
+from selenium.common.exceptions import WebDriverException
+
+MAX_WAIT = 10
 
 class FunctionalTest(StaticLiveServerTestCase):
 
@@ -26,3 +29,12 @@ class FunctionalTest(StaticLiveServerTestCase):
 					raise e
 				time.sleep(0.5)
 
+	def wait_for(self, fn):
+		start_time = time.time()
+		while True:
+			try:
+				return fn()	
+			except (AssertionError, WebDriverException) as e:
+				if time.time() - start_time > MAX_WAIT:
+					raise e
+				time.sleep(0.5)
