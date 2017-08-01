@@ -23,6 +23,3 @@ class LayoutAndStylingTest(FunctionalTest):
 		self.assertAlmostEqual(
 			inputbox.location['x']+inputbox.size['width']/2, 512, delta=10
 		)
-
-	def get_item_input_box(self):
-		return self.browser.find_element_by_id('id_text')
