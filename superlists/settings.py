@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'lists',
     'accounts',
+    'functional_tests',
 ]
 
 AUTH_USER_MODEL = 'accounts.User'

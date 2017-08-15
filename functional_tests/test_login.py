@@ -10,7 +10,6 @@ from .base import FunctionalTest
 SUBJECT = 'Your login link for Superlists'
 
 class LoginTest(FunctionalTest):
-
     def wait_for_email(self, test_email, subject):
         if not self.staging_server:
             email = mail.outbox[0]
