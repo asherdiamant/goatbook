@@ -5,6 +5,8 @@ from .base import FunctionalTest
 from .server_tools import create_session_on_server
 from .management.commands.create_session import create_pre_authenticated_session
 
+import time
+
 User = get_user_model()
 
 
@@ -33,6 +35,7 @@ class MyListsTest(FunctionalTest):
         self.browser.get(self.live_server_url)
         self.add_list_item('Immanentize eschaton')
         self.add_list_item('Reticulate splines')
+
         first_list_url = self.browser.current_url
 
         # She notices a "My Lists" link, for the first time
