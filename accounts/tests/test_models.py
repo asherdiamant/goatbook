@@ -2,6 +2,7 @@ from django.test import TestCase
 from django.contrib import auth
 
 from accounts.models import Token
+
 User = auth.get_user_model()
 
 class UserModelTest(TestCase):
