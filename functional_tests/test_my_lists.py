@@ -2,6 +2,7 @@
 from django.contrib.auth import BACKEND_SESSION_KEY, SESSION_KEY, get_user_model
 from django.contrib.sessions.backends.db import SessionStore
 from .base import FunctionalTest
+from .list_page import ListPage
 
 
 import time
@@ -20,8 +21,8 @@ class MyListsTest(FunctionalTest):
 
         # She goes to the home page and starts a list
         self.browser.get(self.live_server_url)
-        self.add_list_item('Immanentize eschaton')
-        self.add_list_item('Reticulate splines')
+        list_page = ListPage(self).add_list_item('Immanentize eschaton')
+        list_page.add_list_item('Reticulate splines')
 
         first_list_url = self.browser.current_url
 
@@ -40,7 +41,7 @@ class MyListsTest(FunctionalTest):
 
         # She decides to start another list, just to see
         self.browser.get(self.live_server_url)
-        self.add_list_item('Click cows')
+        list_page = ListPage(self).add_list_item('Click cows')
         second_list_url = self.browser.current_url
 
         # Under "My Lists", her new list appears
