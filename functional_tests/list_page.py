@@ -8,8 +8,6 @@ class ListPage(object):
         self.test = test
 
     def get_table_rows(self):
-        print(self.test.browser.current_url)
-        print(self.test.browser.find_element_by_tag_name("body").text)
         return self.test.browser.find_elements_by_css_selector('#id_list_table tr')
 
 
@@ -35,8 +33,8 @@ class ListPage(object):
         )
 
     def get_shared_with_list(self):
-        return self.test.browser.find_element_by_css_selector(
-            'list-sharee'
+        return self.test.browser.find_elements_by_css_selector(
+            '.list-sharee'
         )
 
     def share_list_with(self, email):

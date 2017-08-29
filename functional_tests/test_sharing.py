@@ -39,7 +39,7 @@ class sharing_test(FunctionalTest):
 
         # Oniciferous now goes to the lists page with his browser
         self.browser = oni_browser
-        MyListsPage(self).go_to_my_lists_page()
+        MyListsPage(self).goto_my_lists_page()
 
         # He sees Edith's list there
         self.browser.find_element_by_link_text('Get help').click()

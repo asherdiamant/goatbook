@@ -5,6 +5,7 @@ from django.contrib.auth import get_user_model
 from lists.models import Item, List
 User = get_user_model()
 
+
 class ItemModelTest(TestCase):
 
     def test_default_text(self):
@@ -87,3 +88,11 @@ class ListModelTest(TestCase):
         Item.objects.create(text='first item', list=list_)
         Item.objects.create(text='second item', list=list_)
         self.assertEqual(list_.name, 'first item')
+
+    def test_can_add_sharee_to_list(self):
+        user_ = User.objects.create(email='a@b.com')
+        list_ = List.objects.create()
+        list_.shared_with.add(user_)
+
+        self.assertIn(user_, list_.shared_with.all())
+
